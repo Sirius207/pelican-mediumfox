@@ -7812,7 +7812,6 @@ article .meta a {
 }
 /* line 153, ../sass/base/_layout.scss */
 .home-field #about-me {
-  margin-bottom: 10px;
   line-height: 2.0;
 }
 /* line 158, ../sass/base/_layout.scss */
@@ -7858,4 +7857,101 @@ article .meta a {
   margin: 0px;
   padding: 6px 0px 0px 0px;
   text-transform: none;
+}
+
+/* Category Links Styling */
+.home-landing.her-row .container {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .home-landing.her-row .container {
+    min-width: auto;
+  }
+}
+
+.category-links {
+  text-align: center;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.category-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.category-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.category-link:hover {
+  color: #2c6cb0;
+  text-decoration: none;
+}
+
+.category-link:hover .category-name {
+  transform: translateY(-1px);
+}
+
+.category-icon {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.category-link:hover .category-icon {
+  transform: scale(1.1);
+}
+
+.category-name {
+  transition: transform 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.category-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4a90e2;
+  transition: width 0.3s ease;
+}
+
+.category-link:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .category-list {
+    gap: 24px;
+  }
+  
+  .category-link {
+    font-size: 16px;
+  }
+  
+  .category-icon {
+    font-size: 20px;
+  }
 }

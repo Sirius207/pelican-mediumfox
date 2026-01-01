@@ -11,27 +11,78 @@
       <div class="container">
         <div class="row">
           <div id="about-me" class="col-md-offset-3 col-md-6">
-            <div class="category-links" style="margin-top: 20px;">
-              <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px;">
-                {% for cat, articles in categories %}
-                  {% if cat.name == '技術筆記' or cat.name == '閱讀筆記' or cat.name == '思考筆記' or cat.name == '旅行筆記' %}
-                  <li style="margin: 0;">
-                    <a href="{{ SITEURL }}/{{ cat.url }}" style="text-decoration: none; font-size: 16px;">{{ cat.name }}</a>
-                  </li>
-                  {% endif %}
-                {% endfor %}
-                {% if not categories %}
-                <li style="margin: 0;">
-                  <a href="{{ SITEURL }}/category/ji-shu-bi-ji.html" style="text-decoration: none; font-size: 16px;">技術筆記</a>
+            <div class="category-links">
+              <ul class="category-list">
+                {# 按照指定顺序显示：技術、閱讀、思考、旅行 #}
+                {% if categories %}
+                  {# 技術筆記 #}
+                  {% for cat, articles in categories %}
+                    {% if cat.name == '技術筆記' %}
+                    <li>
+                      <a href="{{ SITEURL }}/{{ cat.url }}" class="category-link">
+                        <span class="category-icon">💻</span>
+                        <span class="category-name">技術筆記</span>
+                      </a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                  {# 閱讀筆記 #}
+                  {% for cat, articles in categories %}
+                    {% if cat.name == '閱讀筆記' %}
+                    <li>
+                      <a href="{{ SITEURL }}/{{ cat.url }}" class="category-link">
+                        <span class="category-icon">📚</span>
+                        <span class="category-name">閱讀筆記</span>
+                      </a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                  {# 思考筆記 #}
+                  {% for cat, articles in categories %}
+                    {% if cat.name == '思考筆記' %}
+                    <li>
+                      <a href="{{ SITEURL }}/{{ cat.url }}" class="category-link">
+                        <span class="category-icon">💭</span>
+                        <span class="category-name">思考筆記</span>
+                      </a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                  {# 旅行筆記 #}
+                  {% for cat, articles in categories %}
+                    {% if cat.name == '旅行筆記' %}
+                    <li>
+                      <a href="{{ SITEURL }}/{{ cat.url }}" class="category-link">
+                        <span class="category-icon">✈️</span>
+                        <span class="category-name">旅行筆記</span>
+                      </a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                {% else %}
+                <li>
+                  <a href="{{ SITEURL }}/category/ji-shu-bi-ji.html" class="category-link">
+                    <span class="category-icon">💻</span>
+                    <span class="category-name">技術筆記</span>
+                  </a>
                 </li>
-                <li style="margin: 0;">
-                  <a href="{{ SITEURL }}/category/yue-du-bi-ji.html" style="text-decoration: none; font-size: 16px;">閱讀筆記</a>
+                <li>
+                  <a href="{{ SITEURL }}/category/yue-du-bi-ji.html" class="category-link">
+                    <span class="category-icon">📚</span>
+                    <span class="category-name">閱讀筆記</span>
+                  </a>
                 </li>
-                <li style="margin: 0;">
-                  <a href="{{ SITEURL }}/category/si-kao-bi-ji.html" style="text-decoration: none; font-size: 16px;">思考筆記</a>
+                <li>
+                  <a href="{{ SITEURL }}/category/si-kao-bi-ji.html" class="category-link">
+                    <span class="category-icon">💭</span>
+                    <span class="category-name">思考筆記</span>
+                  </a>
                 </li>
-                <li style="margin: 0;">
-                  <a href="{{ SITEURL }}/category/lu-xing-bi-ji.html" style="text-decoration: none; font-size: 16px;">旅行筆記</a>
+                <li>
+                  <a href="{{ SITEURL }}/category/lu-xing-bi-ji.html" class="category-link">
+                    <span class="category-icon">✈️</span>
+                    <span class="category-name">旅行筆記</span>
+                  </a>
                 </li>
                 {% endif %}
               </ul>
